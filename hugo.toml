@@ -1,0 +1,12 @@
+baseURL = 'https://example.org/'
+languageCode = 'ja'
+defaultContentLanguage = 'ja'
+title = 'My Blog'
+
+[params]
+  author = 'Your Name'
+  description = 'My personal blog'
+
+[module]
+  [[module.imports]]
+    path = 'github.com/adityatelange/hugo-PaperMod'
