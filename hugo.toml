@@ -1,11 +1,12 @@
 baseURL = 'https://example.org/'
 languageCode = 'ja'
 defaultContentLanguage = 'ja'
-title = 'My Blog'
+title = 'ふぁしぶろぐ'
 
 [params]
-  author = 'Your Name'
-  description = 'My personal blog'
+  author = 'kouphasi'
+  description = 'kouphasiの日々の学びを殴り書きしていくブログです'
+  disableSpecial1stPost = true
 
 [module]
   [[module.imports]]

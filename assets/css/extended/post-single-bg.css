@@ -1,0 +1,15 @@
+/* Make single post pages visually consistent with list card-style pages. */
+body:not(.list) {
+  background: var(--code-bg);
+}
+
+body:not(.list) .main {
+  background: var(--code-bg);
+}
+
+.post-single {
+  background: var(--entry);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--gap);
+}
