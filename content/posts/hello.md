@@ -16,3 +16,13 @@ summary = "PaperMod のサンプル記事です。"
 - Hugo で高速にビルドできる
 
 必要に応じて、このファイルを編集してそのまま最初の記事として使えます。
+
+## detailsタグのサンプル
+
+<details><summary>Details</summary>
+<p>
+
+sample detail
+
+</p>
+</details>
