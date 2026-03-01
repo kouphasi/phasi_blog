@@ -17,6 +17,11 @@ summary = "PaperMod のサンプル記事です。"
 
 必要に応じて、このファイルを編集してそのまま最初の記事として使えます。
 
+## GitHub Alerts のサンプル
+
+> [!NOTE]
+> note content
+
 ## detailsタグのサンプル
 
 <details><summary>Details</summary>
