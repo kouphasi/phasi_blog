@@ -1,0 +1,57 @@
+/* Make single post pages visually consistent with list card-style pages. */
+body:not(.list) {
+  background: var(--code-bg);
+}
+
+body:not(.list) .main {
+  background: var(--code-bg);
+}
+
+.post-single {
+  background: var(--entry);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--gap);
+}
+
+.post-content blockquote.gh-alert {
+  margin: 1.25rem 0;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--border);
+  border-left: 0.35rem solid var(--gh-alert-accent, #0969da);
+  border-radius: 8px;
+  background: var(--code-bg);
+}
+
+.post-content blockquote.gh-alert .gh-alert-title {
+  margin: 0 0 0.35rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--gh-alert-accent, #0969da);
+}
+
+.post-content blockquote.gh-alert > :last-child {
+  margin-bottom: 0;
+}
+
+.post-content blockquote.gh-alert-note {
+  --gh-alert-accent: #0969da;
+}
+
+.post-content blockquote.gh-alert-tip {
+  --gh-alert-accent: #1a7f37;
+}
+
+.post-content blockquote.gh-alert-important {
+  --gh-alert-accent: #8250df;
+}
+
+.post-content blockquote.gh-alert-warning {
+  --gh-alert-accent: #9a6700;
+}
+
+.post-content blockquote.gh-alert-caution {
+  --gh-alert-accent: #d1242f;
+}

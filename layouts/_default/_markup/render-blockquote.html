@@ -1,0 +1,15 @@
+{{- $classes := slice -}}
+{{- with .Attributes.class -}}
+  {{- $classes = $classes | append . -}}
+{{- end -}}
+
+{{- if eq .Type "alert" -}}
+  {{- $classes = $classes | append "gh-alert" (printf "gh-alert-%s" .AlertType) -}}
+{{- end -}}
+
+<blockquote{{ if gt (len $classes) 0 }} class="{{ delimit $classes " " }}"{{ end }}{{ range $k, $v := .Attributes }}{{ if ne $k "class" }} {{ $k }}="{{ $v }}"{{ end }}{{ end }}>
+  {{- if eq .Type "alert" -}}
+    <p class="gh-alert-title">{{ or .AlertTitle (title .AlertType) }}</p>
+  {{- end -}}
+  {{ .Text }}
+</blockquote>

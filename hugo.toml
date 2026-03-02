@@ -1,12 +1,24 @@
-baseURL = 'https://example.org/'
+baseURL = '/'
 languageCode = 'ja'
 defaultContentLanguage = 'ja'
-title = 'My Blog'
+title = 'ふぁしぶろぐ'
+relativeURLs = true
+canonifyURLs = false
 
 [params]
-  author = 'Your Name'
-  description = 'My personal blog'
+  author = 'kouphasi'
+  description = 'kouphasiの日々の学びを殴り書きしていくブログです'
+  disableSpecial1stPost = true
+
+  [params.homeInfoParams]
+    Title = 'こんにちは、kouphasi です'
+    Content = 'Flutter, Vue, Railsをメインで触っているエンジニアです。日々の学びをメモ感覚でまとめています。気軽に読んでいってください!'
 
 [module]
   [[module.imports]]
     path = 'github.com/adityatelange/hugo-PaperMod'
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
