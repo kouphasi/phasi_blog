@@ -9,6 +9,9 @@ canonifyURLs = false
   author = 'kouphasi'
   description = 'kouphasiの日々の学びを殴り書きしていくブログです'
   disableSpecial1stPost = true
+  ShowToc = true
+  TocOpen = true
+  UseHugoToc = true
 
   [params.homeInfoParams]
     Title = 'こんにちは、kouphasi です'

@@ -55,3 +55,35 @@ body:not(.list) .main {
 .post-content blockquote.gh-alert-caution {
   --gh-alert-accent: #d1242f;
 }
+
+.post-layout {
+  display: block;
+}
+
+@media (min-width: 1280px) {
+  .main:has(.post-layout.has-sidebar-toc) {
+    max-width: calc(var(--main-width) + 300px + 1.25rem + var(--gap) * 2);
+  }
+
+  .post-layout.has-sidebar-toc {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 300px;
+    column-gap: 1.25rem;
+    align-items: start;
+  }
+
+  .post-layout.has-sidebar-toc .post-single {
+    margin: 0;
+  }
+
+  .post-layout.has-sidebar-toc .post-sidebar-toc {
+    position: sticky;
+    top: calc(var(--header-height) + 24px);
+    max-height: calc(100vh - var(--header-height) - 36px);
+    overflow: auto;
+  }
+
+  .post-layout.has-sidebar-toc .post-sidebar-toc .toc {
+    margin-bottom: 0;
+  }
+}
