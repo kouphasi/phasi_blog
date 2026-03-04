@@ -1,6 +1,6 @@
 +++
 title = "k8sざっくり入門"
-date = 2026-02-22T22:45:00+09:00
+date = 2026-03-03T22:45:00+09:00
 draft = false
 tags = ["k8s", "インフラ"]
 categories = ["blog"]
