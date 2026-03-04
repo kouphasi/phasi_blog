@@ -1,7 +1,7 @@
 +++
 title = "はじめての投稿"
 date = 2026-02-22T22:45:00+09:00
-draft = false
+draft = true
 tags = ["hugo", "papermod"]
 categories = ["blog"]
 summary = "PaperMod のサンプル記事です。"
