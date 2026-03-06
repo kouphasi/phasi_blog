@@ -1,0 +1,114 @@
++++
+title = "k8sざっくり入門(2)"
+date = 2026-03-06T22:15:00+09:00
+draft = false
+tags = ["k8s", "インフラ"]
+categories = ["blog"]
+summary = "k8sのそもそもの概念を自分なりにまとめてみた"
++++
+
+## はじめに
+
+[前回の記事](https://phasiblog.netlify.app/posts/k8s_init/)の続きの記事になります
+
+## マニフェストファイル
+
+### リソース
+
+1~9は前回記事をご覧ください
+
+#### 10. ConfigMap
+
+Podに対して設定値(設定ファイル)を提供するためのリソース
+
+DeploymentなどのリソースからConfigMapをvolumeとしてmountして利用されることが多い
+
+#### 11. Secret
+
+ConfigMapと似ているが、機密情報をPodに提供するためのリソース
+
+ほとんど同じだが設計上区別することが多い。
+
+あとは標準出力で隠されるなどの違いもある
+
+#### 12. PersistentVolume
+
+Podに対して永続的なストレージを提供するためのリソース
+
+利用の際は`PersistentVolumeClaim`を利用してmountされる
+
+StorageClassに要求するストレージなどを設定できる
+
+#### 13. StorageClass
+
+PersistentVolumeが何をもとに作成されるかを定義するためのリソース
+
+
+#### 14. PersistentVolumeClaim
+
+PersistentVolumeを利用するためのリソース
+
+PersistentVolumeへ要求するストレージやポリシーを設定できる
+
+(備考: StatelfulSetには勝手にPersistentVolumeやPersistentVolumeClaimが作成される)
+
+## k8sの根幹
+
+Clusterの動作を支えているものを深ぼっていく
+
+### Control Plane
+
+Clusterの中を管理する司令塔
+
+### Master Node
+
+(Control Plane Node←こっちが最近の呼び方らしい)
+
+Control Planeが動いているNodeを指す
+
+### Worker Node
+
+Podが動いているNodeを指す
+通常のNodeはこいつのことを指してる
+
+### kubelet
+
+Worker Nodeに常在するPodをコントロールするControl Planeの派遣隊
+
+Podの監視、Podの起動や停止などを行う
+
+また、現状をControl Planeに報告する役割も担う
+
+
+## Podの機能
+
+### Probe(プルーブ)
+
+Pod内のコンテナ内の状態をkubeletが監視するための機能
+
+#### Readiness Probe
+
+コンテナがリクエストを受け付ける準備ができているかを監視するための機能
+
+失敗したらkubeletはそのコンテナをServiceの対象から外す(Clusterネットワークから隔離する)
+
+#### Liveness Probe
+
+コンテナが起動しているかを監視するための機能
+
+失敗したらkubeletはそのコンテナを再起動する
+
+#### Startup Probe
+
+起動に時間がかかるコンテナの起動を監視するための機能
+
+起動が終了するまで他のProbeの動作を止めることができる
+
+(起動に時間かかってLiveness Probeが失敗してしまうケースを防止するための機能)
+
+
+## 参考
+- https://qiita.com/oguogura/items/68741b91b70962081504
+- https://zenn.dev/hono8944/articles/kubernetes-secret-intro#configmap-vs-secret
+- https://kubernetes.io/ja/docs/concepts/storage/storage-classes/
+- https://qiita.com/ohtsuka-shota/items/f7c9e0cc603bf50f655f
