@@ -15,7 +15,7 @@ summary = "デザインパターンを復習 + 言語化してみた→イテレ
 
 最低限以下の要素が必要
 1. *次の要素が存在するか*
-2. *今の要素が何か*
+2. *次の要素が何か*
 
 ### Aggregate(Iterable)
 
@@ -29,7 +29,7 @@ Aggregator内の要素を順番に取り出すためのメソッドがIterator
 
 Iteratorには、以下の二つを持つオブジェクトである必要がある
 1. *次の要素が存在するか*
-2. *今の要素が何か*
+2. *次の要素が何か*
 
 dartでの例
 ```dart
@@ -39,7 +39,7 @@ class Iterator<T> {
   }
 
   <T> next() {
-    // 今の要素が何か
+    // 次の要素が何か
   }
 }
 ```
@@ -47,6 +47,8 @@ class Iterator<T> {
 Iteratorはこれだけを提供する
 
 `hasNext`や`next`のロジックはなんでもいい
+
+(`hasNext`や`next`のメソッド名は言語によって変わるため注意)
 
 dartのclassで実装しているが、
 jsのオブジェクトでもいい。
@@ -58,6 +60,12 @@ jsのオブジェクトでもいい。
 
 Aggregator自身が持ってる要素に順番にアクセスするためのIteratorを生成するためのオブジェクト
 
+内部構造を隠して、Iteratorを生成して返すためのメソッドを提供する
+
+(中身が配列じゃなくても、Iteratorを生成して返すことができる)
+
+(呼び出し側は気にしない)
+
 ```dart
 class Aggregator<T> {
   List<T> items;
@@ -67,7 +75,6 @@ class Aggregator<T> {
   }
 }
 ```
-
 ## 具体例
 
 宝くじ(`Lottery`)で例える
@@ -76,17 +83,18 @@ class Aggregator<T> {
 class Lottery {}
 ```
 
-Iteratorは購入者に対して宝くじをランダムで返すためのメソッド(定員さん)
+Iteratorは購入者に対して宝くじを返すためのオブジェクト(定員さん)
 ```dart
 class LotteryStaff {
   List<Lottery> lotteries;
   LotteryStaff(this.lotteries);
 
-  Lottery hasNext() {
+  bool hasNext() {
     // 次の宝くじが存在するか
   }
   Lottery next() {
     // 渡す宝くじがどのくじか
+    // くじの山から上から取ってもいいし、下からとってもいい(自由に差し替えられる)
   } 
 }
 ````
