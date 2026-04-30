@@ -81,7 +81,7 @@ for value in iterable {
 let numbers = [1, 2, 3, 4, 5];
 
 for n in numbers {
-  println!(n);
+  println!("{}", n);
 }
 ```
 
