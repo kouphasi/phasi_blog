@@ -1,6 +1,6 @@
 +++
 title = "【Rust】データ型について(初級)"
-date = 2026-04-19T20:35:00+09:00
+date = 2026-05-01T00:02:00+09:00
 draft = false
 tags = ["Rust"]
 categories = ["blog"]
