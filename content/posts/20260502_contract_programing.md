@@ -1,7 +1,7 @@
 +++
 title = "契約プログラミング"
 date = 2026-05-01T00:02:00+09:00
-draft = false
+draft = true
 tags = ["基礎"]
 categories = ["blog"]
 summary = "Rustの学習まとめ"
